@@ -1,0 +1,163 @@
+{
+  "project_info": {
+    "project_number": "6218435266",
+    "firebase_url": "https://fintech-totalpay-dev.firebaseio.com",
+    "project_id": "fintech-totalpay-dev",
+    "storage_bucket": "fintech-totalpay-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6218435266:android:8de47704f1b49b879c495b",
+        "android_client_info": {
+          "package_name": "com.TotalPlay.totalplay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6218435266-vhksjteafnie6d01besrct9bvrbl9en1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALgeHlrerXbKbvwdHxGbn7tlHG1sLPxNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6218435266-vhksjteafnie6d01besrct9bvrbl9en1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "6218435266-3jcuctbgar7d0csui1nn1e4crharg6oc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tp.comercioTP"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6218435266:android:3ca29e00f21c51619c495b",
+        "android_client_info": {
+          "package_name": "com.totalplay.ffmdelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6218435266-efh1t4n97ec7hn0r1mdru1ied8orstp6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.totalplay.ffmdelivery",
+            "certificate_hash": "7a3d66c11cee717359d4619393431f1fde898ba0"
+          }
+        },
+        {
+          "client_id": "6218435266-vhksjteafnie6d01besrct9bvrbl9en1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALgeHlrerXbKbvwdHxGbn7tlHG1sLPxNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6218435266-vhksjteafnie6d01besrct9bvrbl9en1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "6218435266-3jcuctbgar7d0csui1nn1e4crharg6oc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tp.comercioTP"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6218435266:android:9ebdad450ce6a7199c495b",
+        "android_client_info": {
+          "package_name": "com.totalplay.totalpay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6218435266-vhksjteafnie6d01besrct9bvrbl9en1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALgeHlrerXbKbvwdHxGbn7tlHG1sLPxNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6218435266-vhksjteafnie6d01besrct9bvrbl9en1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "6218435266-3jcuctbgar7d0csui1nn1e4crharg6oc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tp.comercioTP"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6218435266:android:b03bf44e401cf1da9c495b",
+        "android_client_info": {
+          "package_name": "com.tp.comerciotp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6218435266-vhksjteafnie6d01besrct9bvrbl9en1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALgeHlrerXbKbvwdHxGbn7tlHG1sLPxNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6218435266-vhksjteafnie6d01besrct9bvrbl9en1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "6218435266-3jcuctbgar7d0csui1nn1e4crharg6oc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tp.comercioTP"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
