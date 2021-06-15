@@ -32,7 +32,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val pass = binding.tietLoginPass.text.toString().trim()
 
             validateCredentials(email, pass)
-            singIn(email, pass)
+            signIn(email, pass)
 
         }
     }
@@ -50,7 +50,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     }
 
-    private fun singIn(email : String , pass : String){
+    private fun signIn(email : String, pass : String){
 
     }
 
