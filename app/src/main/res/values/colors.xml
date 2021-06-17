@@ -18,5 +18,12 @@
     <color name="colorBlack">#000000</color>
     <color name="colorAccent">#0C7BCF</color>
     <color name="colorGray">#75797C</color>
+    <color name="colorBlueRay">#0C7BCF</color>
+    <color name="colorBlue" >#56B3FA</color>
+    <color name="colorGrayOrder">#F6F6F6</color>
+    <color name="delivery_background">#FAFAFA</color>
+    <color name="colorBlueBlack">#3B4559</color>
+    <color name="colorGrayDark">#56585A</color>
+    <color name="colorGrayShadow">#33000029</color>
 
 </resources>

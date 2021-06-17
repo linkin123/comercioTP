@@ -6,14 +6,22 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/homeScreenFragment"
-        android:name="com.tp.comerciotp.ui.HomeScreenFragment"
-        android:label="fragment_home_screen"
-        tools:layout="@layout/fragment_home_screen" />
-
-    <fragment
         android:id="@+id/loginFragment"
         android:name="com.tp.comerciotp.ui.LoginFragment"
         tools:layout="@layout/fragment_login"
         android:label="LoginFragment" />
+
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.tp.comerciotp.ui.HomeScreenFragment"
+        android:label="QR"
+        tools:layout="@layout/fragment_home_screen" />
+
+    <dialog
+        android:id="@+id/CloseSessionDialogFragment"
+        android:name="com.tp.comerciotp.ui.CloseSessionDialogFragment"
+        android:label="CloseSessionDialogFragment"
+        tools:layout="@layout/fragment_close_session_dialog" />
+
+
 </navigation>

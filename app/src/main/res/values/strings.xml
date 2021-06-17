@@ -23,4 +23,13 @@
     <string name="crear_una_cuenta">crear una cuenta</string>
     <string name="hello_blank_fragment">Home </string>
     <string name="cargando">Cargando</string>
+    <string name="salir">salir</string>
+    <string name="cerrar_sesion">cerrar sesión</string>
+    <string name="cancelar">cancelar</string>
+    <string name="aceptar">aceptar</string>
+    <string name="deseas_cerrar_tu_sesi_n">desea cerrar sesión</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="close_session">cerrar sesión</string>
+    <string name="_5">5%</string>
+    <string name="_15">15%</string>
 </resources>
