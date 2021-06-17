@@ -22,7 +22,7 @@ object ServiceGenerator {
 
     fun retrofitBuilderEncrypt(): Retrofit.Builder =
         Retrofit.Builder()
-            .baseUrl(AppConstants.BASE_URL)
+            .baseUrl(AppConstants.BASE_URL_TEST_DEV)
             .addConverterFactory(CustomGsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(getUnsafeOkHttpClient(httpBuilderEncrypt()))

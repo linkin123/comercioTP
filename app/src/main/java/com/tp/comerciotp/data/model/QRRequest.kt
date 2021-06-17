@@ -23,5 +23,8 @@ data class QRRequest(
 	val idCaja: Int? = null,
 
 	@field:SerializedName("idTienda")
-	val idTienda: Int? = null
+	val idTienda: Int? = null,
+
+	@field:SerializedName("monto_retiro")
+	val montoRetiro: Double? = null
 )
