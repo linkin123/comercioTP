@@ -1,277 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorGrayOrder">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <include
-        android:id="@+id/toolbarId"
-        layout="@layout/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <ProgressBar
-        android:id="@+id/progress"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        <variable
+            name="tipViewModel"
+            type="com.tp.comerciotp.presentation.home.TipViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:backgroundTint="@color/colorWhite"
-        android:indeterminate="true"
-        android:visibility="invisible"
-        android:indeterminateTint="#3095FF"
-        android:max="100"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarId" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_revisa_correcto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
-        android:fontFamily="@font/montserrat"
-        android:gravity="center"
-        android:text="Introduce el monto a pagar"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress" />
+        <include
+            android:id="@+id/bottom_qr"
+            layout="@layout/bottom_qr_screen" />
 
-    <EditText
-        android:id="@+id/et_monto_static"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:fontFamily="@font/montserrat"
-        android:gravity="center"
-        android:minWidth="120dp"
-        android:inputType="number"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_revisa_correcto"
-        tools:text="1,000" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="$"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/et_monto_static"
-        app:layout_constraintEnd_toStartOf="@+id/et_monto_static"
-        app:layout_constraintTop_toTopOf="@+id/et_monto_static" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_monto_static">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true">
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayOrder">
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_60_billetes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.60" />
 
-            <androidx.constraintlayout.helper.widget.Layer
-                android:id="@+id/layer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:constraint_referenced_ids="v_div_detail_pay_2, tv_propina, tv_total_con_propina, tv_pay_total"
-                tools:ignore="MissingConstraints" />
-
-            <TextView
-                android:id="@+id/tv_deseas_agregar_propina"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="¿Deseas agregar propina?"
-                android:textColor="@color/colorBlueBlack"
-                android:textSize="15sp"
+            <include
+                android:id="@+id/toolbarId"
+                layout="@layout/toolbar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <RadioGroup
-                android:id="@+id/rg_propina_pay"
+            <ProgressBar
+                android:id="@+id/progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="40dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="5dp"
+                android:backgroundTint="@color/colorWhite"
+                android:indeterminate="true"
+                android:indeterminateTint="#3095FF"
+                android:max="100"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_deseas_agregar_propina"
-                app:layout_constraintVertical_bias="0">
-
-
-                <RadioButton
-                    android:id="@+id/btn_10_percent_pro_pay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="@string/_5"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:ignore="TooDeepLayout"
-                    tools:textColor="@color/colorGrayDark" />
-
-                <RadioButton
-                    android:id="@+id/btn_15_percent_pro_pay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="10%"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:textColor="@color/colorGrayDark" />
-
-
-                <RadioButton
-                    android:id="@+id/btn_20_percent_pro_pay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="@string/_15"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:textColor="@color/colorGrayDark" />
-            </RadioGroup>
-
-            <View
-                android:id="@+id/v_div_detail_pay_2"
-                android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@color/colorGrayShadow"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rg_propina_pay"
-                tools:visibility="visible" />
-
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_40"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.40" />
+                app:layout_constraintTop_toBottomOf="@+id/toolbarId" />
 
             <TextView
-                android:id="@+id/tv_propina"
-                android:layout_width="0dp"
+                android:id="@+id/tv_revisa_correcto"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
                 android:fontFamily="@font/montserrat"
-                android:textColor="@color/colorBlueBlack"
-                android:textSize="15sp"
+                android:gravity="center"
+                android:text="Introduce el monto a pagar"
+                android:textSize="22sp"
                 android:textStyle="bold"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/gl_40"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2"
-                tools:text="+10% Propina"
-                tools:visibility="visible" />
+                app:layout_constraintTop_toBottomOf="@+id/progress" />
 
-            <TextView
-                android:id="@+id/tv_total_con_propina"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="40dp"
-                android:fontFamily="@font/montserrat"
-                android:gravity="top|end"
-                android:text="Total:"
-                android:textColor="@color/colorBlueBlack"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_pay_total"
-                app:layout_constraintStart_toStartOf="@+id/gl_40"
-                app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2"
-                tools:visibility="visible" />
-
-            <TextView
-                android:id="@+id/tv_pay_total"
+            <EditText
+                android:id="@+id/et_monto_static"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="40dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:maxLength="13"
-                android:textColor="@color/colorBlueBlack"
-                android:textStyle="bold"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:inputType="number"
+                android:minWidth="120dp"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_revisa_correcto"
+                tools:text="1,000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="$"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="@+id/et_monto_static"
+                app:layout_constraintEnd_toStartOf="@+id/et_monto_static"
+                app:layout_constraintTop_toTopOf="@+id/et_monto_static" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_monto_static">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_60_billetes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.60" />
+
+                    <androidx.constraintlayout.helper.widget.Layer
+                        android:id="@+id/layer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="v_div_detail_pay_2, tv_propina, tv_total_con_propina, tv_pay_total"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/tv_deseas_agregar_propina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="¿Deseas agregar propina?"
+                        android:textColor="@color/colorBlueBlack"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_propina_pay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="40dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_deseas_agregar_propina"
+                        app:layout_constraintVertical_bias="0">
+
+
+                        <RadioButton
+                            android:id="@+id/btn_10_percent_pro_pay"
+                            android:layout_width="match_parent"
+                            android:background="@{tipViewModel.cb10 ? @drawable/shape_selected : @drawable/shape_unselected}"
+                            android:onClick="@{() -> tipViewModel.setCb(5)}"
+                            android:textColor="@{tipViewModel.cb10 ? @color/colorWhite : @color/colorGrayDark}"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@string/_5"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="TooDeepLayout"
+                            tools:textColor="@color/colorGrayDark" />
+
+                        <RadioButton
+                            android:id="@+id/btn_15_percent_pro_pay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:background="@{tipViewModel.cb15 ? @drawable/shape_selected : @drawable/shape_unselected}"
+                            android:onClick="@{() -> tipViewModel.setCb(10)}"
+                            android:textColor="@{tipViewModel.cb15 ? @color/colorWhite : @color/colorGrayDark}"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="10%"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:textColor="@color/colorGrayDark" />
+
+
+                        <RadioButton
+                            android:id="@+id/btn_20_percent_pro_pay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:onClick="@{() -> tipViewModel.setCb(15)}"
+                            android:background="@{tipViewModel.cb20 ? @drawable/shape_selected : @drawable/shape_unselected}"
+                            android:textColor="@{tipViewModel.cb20 ? @color/colorWhite : @color/colorGrayDark}"
+                            android:padding="5dp"
+                            android:text="@string/_15"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:textColor="@color/colorGrayDark" />
+                    </RadioGroup>
+
+                    <View
+                        android:id="@+id/v_div_detail_pay_2"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/colorGrayShadow"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rg_propina_pay"
+                        tools:visibility="visible" />
+
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_40"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.40" />
+
+                    <TextView
+                        android:id="@+id/tv_propina"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="40dp"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/colorBlueBlack"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_40"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2"
+                        tools:text="+10% Propina"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/tv_total_con_propina"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="40dp"
+                        android:fontFamily="@font/montserrat"
+                        android:gravity="top|end"
+                        android:text="Total:"
+                        android:textColor="@color/colorBlueBlack"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_pay_total"
+                        app:layout_constraintStart_toStartOf="@+id/gl_40"
+                        app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/tv_pay_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="40dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:maxLength="13"
+                        android:textColor="@color/colorBlueBlack"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2"
+                        tools:text="$1,100,000.00"
+                        tools:visibility="visible" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_generar_qr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:background="@drawable/a_background_button_blue_gradient"
+                android:fontFamily="@font/montserrat"
+                android:text="Generar QR"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2"
-                tools:text="$1,100,000.00"
-                tools:visibility="visible" />
+                app:layout_constraintStart_toStartOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/btn_pay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:background="@drawable/a_background_button_blue_gradient"
-        android:fontFamily="@font/montserrat"
-        android:text="Generar QR"
-        android:textAllCaps="false"
-        android:textColor="@color/colorWhite"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

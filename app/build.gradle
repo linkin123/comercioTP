@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -10,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.tp.comerciotp"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -34,7 +35,9 @@ android {
 
     buildFeatures {
         viewBinding true
+        dataBinding = true
     }
+
 
 }
 
@@ -73,6 +76,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    //QR API
+    implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
+
 
 
 
