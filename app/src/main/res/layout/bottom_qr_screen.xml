@@ -14,10 +14,10 @@
     app:layout_behavior="@string/bottom_sheet_behavior">
 
     <androidx.constraintlayout.helper.widget.Layer
-        android:layout_width="match_parent"
         android:id="@+id/layer_progress"
-        app:constraint_referenced_ids="progressBar, pbText, v_progress_background"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:constraint_referenced_ids="progressBar, pbText, v_progress_background"
         tools:ignore="MissingConstraints" />
 
 
@@ -36,34 +36,58 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/iv_qr"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_margin="10dp"
-        tools:src="@mipmap/ic_launcher_round"
-        android:id="@+id/iv_qr"
         app:layout_constraintBottom_toTopOf="@+id/btn_aceptar_qr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_text_description" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_description"
+        tools:src="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_totalplay"
+        android:id="@+id/iv_totalplay"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_qr"
+        app:layout_constraintEnd_toEndOf="@+id/iv_qr"
+        app:layout_constraintStart_toStartOf="@+id/iv_qr"
+        app:layout_constraintTop_toTopOf="@+id/iv_qr" />
+
     <View
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@color/white"
+        android:id="@+id/v_totalplay"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_qr"
+        app:layout_constraintEnd_toEndOf="@+id/iv_qr"
+        app:layout_constraintStart_toStartOf="@+id/iv_qr"
+        app:layout_constraintTop_toTopOf="@+id/iv_qr" />
+
+
+    <View
+        android:id="@+id/v_progress_background"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="match_parent"
         android:background="#CCFFFFFF"
         android:elevation="10dp"
-        android:id="@+id/v_progress_background"
-        android:layout_height="match_parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/colorBlueBusiness"
         android:elevation="10dp"
         android:indeterminate="true"
         android:indeterminateTint="#3095FF"
-        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,29 +98,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="@string/cargando"
         android:elevation="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="@string/cargando"
         android:textColor="@color/colorBlackBusiness"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_aceptar_qr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btn_aceptar_qr"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <Button
+        android:id="@+id/btn_aceptar_qr"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:background="@drawable/custom_button"
         android:text="@string/aceptar"
         android:textAllCaps="false"
-        android:id="@+id/btn_aceptar_qr"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="15dp"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

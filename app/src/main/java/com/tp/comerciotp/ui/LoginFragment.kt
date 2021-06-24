@@ -7,13 +7,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.tp.comerciotp.R
 import com.tp.comerciotp.core.Resource
-import com.tp.comerciotp.data.remoteeeee.auth.LoginDataSource
+import com.tp.comerciotp.data.remote.auth.LoginDataSource
 import com.tp.comerciotp.databinding.FragmentLoginBinding
 import com.tp.comerciotp.domain.auth.LoginRepoImpl
 import com.tp.comerciotp.presentation.auth.LoginScreenViewModel
 import com.tp.comerciotp.presentation.auth.LoginScreenViewModelFactory
+import com.tp.comerciotp.utils.KeyUser
+import com.tp.comerciotp.utils.PreferencesHelper
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
@@ -68,6 +71,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     binding.btnLoginStartSession.isEnabled = false
                 }
                 is Resource.Success -> {
+                    PreferencesHelper.saveString(KeyUser.UID, result.data?.uid)
                     findNavController().navigate(R.id.homeScreenFragment)
                     binding.progress.visibility = View.GONE
                 }
@@ -79,6 +83,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
         })
     }
+
 
 
 }

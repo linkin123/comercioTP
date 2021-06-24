@@ -2,10 +2,10 @@ package com.tp.comerciotp.ui
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
@@ -16,13 +16,16 @@ import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.tp.comerciotp.R
 import com.tp.comerciotp.core.Resource
 import com.tp.comerciotp.data.model.QRRequest
-import com.tp.comerciotp.data.remoteeeee.home.HomeDataSource
+import com.tp.comerciotp.data.remote.home.HomeDataSource
 import com.tp.comerciotp.databinding.FragmentHomeScreenBinding
 import com.tp.comerciotp.domain.home.HomeRepoImpl
 import com.tp.comerciotp.presentation.home.HomeScreenViewModel
 import com.tp.comerciotp.presentation.home.HomeScreenViewModelFactory
 import com.tp.comerciotp.presentation.home.TipViewModel
 import com.tp.comerciotp.repository.RetrofitClient
+import com.tp.comerciotp.utils.KeyUser
+import com.tp.comerciotp.utils.PayLogic
+import com.tp.comerciotp.utils.PreferencesHelper
 
 
 class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
@@ -34,15 +37,23 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
         HomeScreenViewModelFactory(HomeRepoImpl(HomeDataSource(RetrofitClient.webService)))
     }
 
-
+    private var mTip: Int = 0
+    private var mAmount: String = "0"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeScreenBinding.bind(view)
         managerDataBinding()
+        observers()
         setUpBottomSheet()
         setUpToolbar()
         onclicks()
+    }
+
+    private fun observers() {
+        tipViewModel.tip.observe(viewLifecycleOwner, { tip ->
+            mTip = tip
+        })
     }
 
     private fun managerDataBinding() {
@@ -67,11 +78,13 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
                         is Resource.Loading -> {
                             binding.bottomQr.layerProgress.visibility = View.VISIBLE
                             binding.bottomQr.btnAceptarQr.visibility = View.GONE
+                            binding.bottomQr.ivTotalplay.visibility = View.GONE
                             binding.btnGenerarQr.isEnabled = false
                         }
                         is Resource.Success -> {
                             binding.bottomQr.layerProgress.visibility = View.GONE
                             binding.bottomQr.btnAceptarQr.visibility = View.VISIBLE
+                            binding.bottomQr.ivTotalplay.visibility = View.VISIBLE
                             binding.btnGenerarQr.isEnabled = true
                             result.data.qr?.let { qr ->
                                 generateBitmap(qr)
@@ -94,9 +107,26 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
                 binding.bottomQr.ivQr.setImageBitmap(null)
             }
         }
+
+        binding.etMontoStatic.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                tipViewModel.setAmount(p0.toString())
+                mAmount = p0.toString()
+            }
+        })
     }
 
-
+    private fun getTip(): Double {
+        return PayLogic.getPropina(mAmount, mTip)!!.toDouble()
+    }
 
 
     private fun generateBitmap(str: String) {
@@ -114,10 +144,11 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
             binding.etMontoStatic.text.toString().trim().toDouble(),
             1,
             1,
-            0.0,
+            getTip(),
             59,
             1,
-            22,
+//            22,
+            PreferencesHelper.getString(KeyUser.UID)!!.toInt(),
             0.0
         )
     }

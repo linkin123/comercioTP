@@ -1,4 +1,4 @@
-package com.tp.comerciotp.data.remoteeeee.auth
+package com.tp.comerciotp.data.remote.auth
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

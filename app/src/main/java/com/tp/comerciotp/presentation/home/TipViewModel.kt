@@ -37,11 +37,33 @@ class TipViewModel : ViewModel(){
     private val _selectedTip = MutableLiveData<Boolean>()
     val selectedTip: LiveData<Boolean> get() = _selectedTip
 
+    private val _descuento = MutableLiveData<String>()
+    val descuento: LiveData<String> get() = _descuento
+
+    private val _amount = MutableLiveData<String>()
+    val amount: LiveData<String> get() = _amount
+
+
+
     companion object {
         private const val ET_TIP = "et_tip"
         private const val CB_TIP = "cb_tip"
         private const val EMPTY_TIP = "empty_tip"
     }
+
+    init {
+        setAllcbInFalse()
+        _descuento.value = "0"
+    }
+
+    private fun setAllcbInFalse() {
+        PayLogic.changeBank(_cb20, _cb15, _cb10, true)
+    }
+
+    fun setAmount(amountEt: String) {
+        _amount.value = amountEt
+    }
+
 
     fun setCb(i: Int) {
         _tipP.value = "+$i% Propina"

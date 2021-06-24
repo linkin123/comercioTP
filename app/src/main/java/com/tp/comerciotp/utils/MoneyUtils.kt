@@ -1,5 +1,8 @@
 package com.tp.comerciotp.utils
 
+import android.view.View
+import android.widget.TextView
+import androidx.databinding.BindingAdapter
 import java.util.regex.Pattern
 
 object MoneyUtils {
@@ -204,4 +207,18 @@ object MoneyUtils {
             return "0.00"
         }
     }
+}
+
+@BindingAdapter("monto", "percent", "descuento")
+fun TextView.calculaTotal(monto: String?, percent: Int?, descuento: String?) {
+    text = if (!monto.isNullOrEmpty() && percent != null && descuento != null) {
+        "$${MoneyUtils.getTotal(monto, percent, descuento)}"
+    } else {
+        ""
+    }
+}
+
+@BindingAdapter("visibility_view")
+fun View.setView(b: Boolean) {
+    visibility = if (b) View.VISIBLE else View.GONE
 }
