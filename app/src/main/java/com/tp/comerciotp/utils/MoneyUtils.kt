@@ -174,12 +174,12 @@ object MoneyUtils {
         return this * (propina / 100.0f)
     }
 
-    fun getTotal(amount: String, propina: Int, descuento: String): String {
+    fun getTotal(amount: String, propina: Int, descuento: String, cashback : String): String {
         try {
             val amountStr = amount.trim().getStrSinComasX().toFloat().getPropina(propina)
             val propinaFloat = amountStr.toString().geTwoDecimals().toFloat()
             val subTotal = amount.toFloat() + propinaFloat
-            val total = subTotal - descuento.toFloat()
+            val total = subTotal - descuento.toFloat() + cashback.toFloat()
 
             return if (total < 0) {
                 "0.00"
@@ -209,13 +209,20 @@ object MoneyUtils {
     }
 }
 
-@BindingAdapter("monto", "percent", "descuento")
-fun TextView.calculaTotal(monto: String?, percent: Int?, descuento: String?) {
+@BindingAdapter("monto", "percent", "descuento", "cashback")
+fun TextView.calculaTotal(monto: String?, percent: Int?, descuento: String?, cashback : String?) {
     text = if (!monto.isNullOrEmpty() && percent != null && descuento != null) {
-        "$${MoneyUtils.getTotal(monto, percent, descuento)}"
+        "$${MoneyUtils.getTotal(monto, percent, descuento, cashback.getAmount())}"
     } else {
         ""
     }
+}
+
+private fun String?.getAmount(): String {
+    this?.let {
+        return if(this.isEmpty()) "0" else this
+    }
+    return "0"
 }
 
 @BindingAdapter("visibility_view")

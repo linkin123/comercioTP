@@ -220,6 +220,33 @@
                         app:layout_constraintTop_toBottomOf="@+id/rg_propina_pay"
                         tools:visibility="visible" />
 
+                    <TextView
+                        android:id="@+id/tv_cashback"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="¿Deseas retirar?"
+                        android:textColor="@color/colorBlueBlack"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2" />
+
+                    <EditText
+                        android:id="@+id/et_monto_cashback"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:inputType="number"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tv_cashback"
+                        app:layout_constraintTop_toTopOf="@+id/tv_cashback"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_cashback"
+                        tools:text="1,000" />
+
 
                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/gl_40"
@@ -244,7 +271,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/gl_40"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2"
+                        app:layout_constraintTop_toBottomOf="@+id/et_monto_cashback"
                         tools:text="+10% Propina"
                         tools:visibility="visible" />
 
@@ -263,7 +290,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/tv_pay_total"
                         app:layout_constraintStart_toStartOf="@+id/gl_40"
-                        app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2"
+                        app:layout_constraintTop_toBottomOf="@+id/et_monto_cashback"
                         tools:visibility="visible" />
 
                     <TextView
@@ -276,13 +303,14 @@
                         android:fontFamily="@font/montserrat_bold"
                         android:maxLength="13"
                         app:descuento="@{tipViewModel.descuento}"
+                        app:cashback="@{tipViewModel.cashback}"
                         app:monto="@{tipViewModel.amount}"
                         app:percent="@{tipViewModel.tip}"
                         android:textColor="@color/colorBlueBlack"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/v_div_detail_pay_2"
+                        app:layout_constraintTop_toBottomOf="@+id/et_monto_cashback"
                         tools:text="$1,100,000.00"
                         tools:visibility="visible" />
 

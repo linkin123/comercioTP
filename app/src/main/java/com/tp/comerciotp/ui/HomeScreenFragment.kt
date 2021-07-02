@@ -39,6 +39,7 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
 
     private var mTip: Int = 0
     private var mAmount: String = "0"
+    private var mAmountRetiro: String = "0"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -69,6 +70,22 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
         binding.toolbarId.actionBar.ivBack.setOnClickListener {
             findNavController().navigate(R.id.CloseSessionDialogFragment)
         }
+
+        binding.etMontoCashback.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                tipViewModel.setRetiro(p0.toString())
+                mAmountRetiro = p0.toString()
+            }
+
+        })
 
         binding.btnGenerarQr.setOnClickListener {
             if (binding.etMontoStatic.text.toString().isNotEmpty()) {
@@ -149,7 +166,7 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
             1,
 //            22,
             PreferencesHelper.getString(KeyUser.UID)!!.toInt(),
-            0.0
+            mAmountRetiro.toDouble()
         )
     }
 

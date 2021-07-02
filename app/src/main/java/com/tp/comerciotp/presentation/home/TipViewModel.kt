@@ -40,6 +40,9 @@ class TipViewModel : ViewModel(){
     private val _descuento = MutableLiveData<String>()
     val descuento: LiveData<String> get() = _descuento
 
+    private val _cashback = MutableLiveData<String>()
+    val cashback: LiveData<String> get() = _cashback
+
     private val _amount = MutableLiveData<String>()
     val amount: LiveData<String> get() = _amount
 
@@ -62,6 +65,10 @@ class TipViewModel : ViewModel(){
 
     fun setAmount(amountEt: String) {
         _amount.value = amountEt
+    }
+
+    fun setRetiro(cash : String? ){
+        _cashback.value = cash ?: "0"
     }
 
 
