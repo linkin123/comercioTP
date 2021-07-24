@@ -26,5 +26,8 @@ data class QRRequest(
 	val idTienda: Int? = null,
 
 	@field:SerializedName("montoRetiro")
-	val montoRetiro: Double? = null
+	val montoRetiro: Double? = null,
+
+	@field:SerializedName("numTransaccion")
+	val numTransaccion: String? = null
 )

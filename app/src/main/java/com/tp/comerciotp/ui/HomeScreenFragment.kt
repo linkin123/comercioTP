@@ -155,6 +155,21 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
         binding.bottomQr.ivQr.setImageBitmap(encodeBitmap)
     }
 
+    /*
+    * {
+  "monto": 4.5, listo
+  "idAgente": 69, listo
+  "idSubsidiaria": 1,listo
+  "idTienda": 10001,listo
+  "idCajero": 1,listo
+  "idCaja": 1,listo
+  "propina": 0.5,listo
+  "montoRetiro": 0.0,listo
+  "numTransaccion": "00200"
+}
+    *
+    * */
+
 
     private fun getRequestQR(): QRRequest {
         return QRRequest(
@@ -166,7 +181,8 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
             1,
 //            22,
             PreferencesHelper.getString(KeyUser.UID)!!.toInt(),
-            mAmountRetiro.toDouble()
+            mAmountRetiro.toDouble(),
+            "00200"
         )
     }
 

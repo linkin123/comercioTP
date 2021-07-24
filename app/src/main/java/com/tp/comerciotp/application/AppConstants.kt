@@ -3,7 +3,7 @@ package com.tp.comerciotp.application
 object AppConstants {
 
 //    const val BASE_URL_TEST_DEV = "https://totalplay-dev.apigee.net/"
-    const val BASE_URL_TEST_DEV = "https://sts-qr-tpbankowner-ewgwcdgfsa-uc.a.run.app"
+    const val BASE_URL_TEST_DEV = "https://totalplay-dev.apigee.net"
     const val BASE_URL_TEST_QA = "https://totalplay-qa.apigee.net/"
     const val BASE_URL_TEST_LOANS = "https://serv-loans-clientes-ewgwcdgfsa-uc.a.run.app/"
     const val BASE_URL_TEST_LOANS_2 = "https://serv-baz-loans-transacciones-ewgwcdgfsa-uc.a.run.app/"
